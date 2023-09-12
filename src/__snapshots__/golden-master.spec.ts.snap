@@ -2,24 +2,171 @@
 
 exports[`Ceci est un test 1`] = `
 [
+  "BEFORE // name: Aged Brie, quality: 30, sellIn: 10",
   "31 Quality is less than 50', 'Quality win 1",
-  "Aged Brie is Not Sulfuras item so sell In decrease of 1 ",
+  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
+  "AFTER // name: Aged Brie, quality: 31, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`Item is a Sulfuras hammer with a positif quality 1`] = `
+[
+  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
+  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 30 > 0",
+  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
+  "______",
+]
+`;
+
+exports[`Item is a Sulfuras hammer with a positif quality 2`] = `
+[
+  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
+  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 30 > 0",
+  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
+  "______",
+]
+`;
+
+exports[`Sulfuras hammer with a negatif quality / Random Objet with a positif quality 1`] = `
+[
+  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
+  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
+  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
+  "______",
+  "BEFORE // name: Random, quality: 10, sellIn: 10",
+  "Random is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 10 > 0",
+  "Random Is not Sulfuras Weapon, quality has decrease of 1 it's now 9",
+  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
+  "AFTER // name: Random, quality: 9, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`Sulfuras hammer with a negatif quality / Random Objet with a positif quality 2`] = `
+[
+  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
+  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
+  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
+  "______",
+  "BEFORE // name: Random, quality: 10, sellIn: 10",
+  "Random is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 10 > 0",
+  "Random Is not Sulfuras Weapon, quality has decrease of 1 it's now 9",
+  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
+  "AFTER // name: Random, quality: 9, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`Sulfuras hammer with a positif quality / Random Objet with a negatif quality 1`] = `
+[
+  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 10, sellIn: 10",
+  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 10 > 0",
+  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 10, sellIn: 10",
+  "______",
+  "BEFORE // name: Random, quality: -10, sellIn: 10",
+  "Random is different of a Aged Brie and TAFKAL80ETC concert",
+  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
+  "AFTER // name: Random, quality: -10, sellIn: 9",
+  "______",
 ]
 `;
 
 exports[`Test with quality < 50 1`] = `
 [
+  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 30, sellIn: 10",
   "31 Quality is less than 50', 'Quality win 1",
   "Backstage passes to a TAFKAL80ETC concert Is TAFKAL80ETC concert part",
   "sell In under 11",
   "32 Quality is less than 50 Quality win 1 from 11 sell In",
-  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item so sell In decrease of 1 ",
+  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
+  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 32, sellIn: 9",
+  "______",
 ]
 `;
 
 exports[`Test with quality < 50 but sellIn < 6 1`] = `
 [
+  "BEFORE // name: Aged Brie, quality: 30, sellIn: 4",
   "31 Quality is less than 50', 'Quality win 1",
-  "Aged Brie is Not Sulfuras item so sell In decrease of 1 ",
+  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now 3 ",
+  "AFTER // name: Aged Brie, quality: 31, sellIn: 3",
+  "______",
+]
+`;
+
+exports[`sellIn inférieur à 0 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 60, sellIn: -1",
+  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
+  "sell In inferior than 0",
+  "AFTER // name: Aged Brie, quality: 60, sellIn: -2",
+  "______",
+]
+`;
+
+exports[`sellIn inférieur à 0 et nom != Brie/TAFKAL80ETC/Sulfuras 1`] = `
+[
+  "BEFORE // name: Different, quality: 0, sellIn: -1",
+  "Different is different of a Aged Brie and TAFKAL80ETC concert",
+  "Different is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
+  "sell In inferior than 0",
+  "Is not Brie",
+  "Is not also TAFKAL80ETC concert",
+  "AFTER // name: Different, quality: 0, sellIn: -2",
+  "______",
+]
+`;
+
+exports[`sellIn inférieur à 0, nom != TAFKAL80ETC et quality <50 1`] = `
+[
+  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 40, sellIn: -1",
+  "41 Quality is less than 50', 'Quality win 1",
+  "Backstage passes to a TAFKAL80ETC concert Is TAFKAL80ETC concert part",
+  "sell In under 11",
+  "42 Quality is less than 50 Quality win 1 from 11 sell In",
+  "sell In under 6",
+  "43 Quality is less than 50 Quality win 1 from 6 sell in",
+  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
+  "sell In inferior than 0",
+  "Is not Brie",
+  "else quality - quality",
+  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 0, sellIn: -2",
+  "______",
+]
+`;
+
+exports[`sellIn inférieur à 0, nom = TAFKAL80ETC 1`] = `
+[
+  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 60, sellIn: -1",
+  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
+  "sell In inferior than 0",
+  "Is not Brie",
+  "else quality - quality",
+  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 0, sellIn: -2",
+  "______",
+]
+`;
+
+exports[`sellIn inférieur à 0, nom =! sulfuras et quality > 0 1`] = `
+[
+  "BEFORE // name: Different, quality: 60, sellIn: -1",
+  "Different is different of a Aged Brie and TAFKAL80ETC concert",
+  "Quality 60 > 0",
+  "Different Is not Sulfuras Weapon, quality has decrease of 1 it's now 59",
+  "Different is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
+  "sell In inferior than 0",
+  "Is not Brie",
+  "Is not also TAFKAL80ETC concert",
+  "quality is more than 0",
+  "Is also not Sulfuras weapon",
+  "the quality decrease of 1 because is something else",
+  "AFTER // name: Different, quality: 58, sellIn: -2",
+  "______",
 ]
 `;

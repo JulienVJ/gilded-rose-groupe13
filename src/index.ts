@@ -19,13 +19,14 @@ export class GildedRose {
 
   updateQuality() {
     for (let i = 0; i < this.items.length; i++) {
+      console.log(`BEFORE // name: ${this.items[i].name}, quality: ${this.items[i].quality}, sellIn: ${this.items[i].sellIn}`)
       if (this.items[i].name != "Aged Brie" && this.items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-        console.log(`${this.items[i].name} is not Aged Brie and not TAFKAL80ETC concert`)
+        console.log(`${this.items[i].name} is different of a Aged Brie and TAFKAL80ETC concert`)
         if (this.items[i].quality > 0) {
-          console.log(`${this.items[i].quality} Quality is more than 0`)
+          console.log(`Quality ${this.items[i].quality} > 0`)
           if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
             this.items[i].quality = this.items[i].quality - 1;
-            console.log(`${this.items[i].name} Is not Sulfuras Weapon  ${this.items[i].quality} quality has decrease of 1`)
+            console.log(`${this.items[i].name} Is not Sulfuras Weapon, quality has decrease of 1 it's now ${this.items[i].quality}`)
           }
         }
       } else {
@@ -53,7 +54,7 @@ export class GildedRose {
       }
       if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
         this.items[i].sellIn = this.items[i].sellIn - 1;
-        console.log(`${this.items[i].name} is Not Sulfuras item so sell In decrease of 1 `)
+        console.log(`${this.items[i].name} is Not Sulfuras item, sellIn has decrease of 1 it's now ${this.items[i].sellIn} `)
       }
       if (this.items[i].sellIn < 0) {
         console.log("sell In inferior than 0")
@@ -80,6 +81,8 @@ export class GildedRose {
           }
         }
       }
+      console.log(`AFTER // name: ${this.items[i].name}, quality: ${this.items[i].quality}, sellIn: ${this.items[i].sellIn}`)
+      console.log("______")
     }
 
     return this.items;
