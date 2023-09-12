@@ -6,3 +6,20 @@ exports[`Ceci est un test 1`] = `
   "Aged Brie is Not Sulfuras item so sell In decrease of 1 ",
 ]
 `;
+
+exports[`Test with quality < 50 1`] = `
+[
+  "31 Quality is less than 50', 'Quality win 1",
+  "Backstage passes to a TAFKAL80ETC concert Is TAFKAL80ETC concert part",
+  "sell In under 11",
+  "32 Quality is less than 50 Quality win 1 from 11 sell In",
+  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item so sell In decrease of 1 ",
+]
+`;
+
+exports[`Test with quality < 50 but sellIn < 6 1`] = `
+[
+  "31 Quality is less than 50', 'Quality win 1",
+  "Aged Brie is Not Sulfuras item so sell In decrease of 1 ",
+]
+`;
