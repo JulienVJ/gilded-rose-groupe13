@@ -1,14 +1,4 @@
-export class Item {
-  name: string;
-  sellIn: number;
-  quality: number;
-
-  constructor(name, sellIn, quality) {
-    this.name = name;
-    this.sellIn = sellIn;
-    this.quality = quality;
-  }
-}
+import Item from "./Item";
 
 export class GildedRose {
   items: Array<Item>;
@@ -18,73 +8,92 @@ export class GildedRose {
   }
 
   updateQuality() {
-    for (let i = 0; i < this.items.length; i++) {
-      console.log(`BEFORE // name: ${this.items[i].name}, quality: ${this.items[i].quality}, sellIn: ${this.items[i].sellIn}`)
-      if (this.items[i].name != "Aged Brie" && this.items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-        console.log(`${this.items[i].name} is different of a Aged Brie and TAFKAL80ETC concert`)
-        if (this.items[i].quality > 0) {
-          console.log(`Quality ${this.items[i].quality} > 0`)
-          if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-            this.items[i].quality = this.items[i].quality - 1;
-            console.log(`${this.items[i].name} Is not Sulfuras Weapon, quality has decrease of 1 it's now ${this.items[i].quality}`)
-          }
-        }
+    this.items.forEach(item => {
+      console.log(`BEFORE // name: ${item.name}, quality: ${item.quality}, sellIn: ${item.sellIn}`)
+
+      const qualityTooMuch = item.quality > 50
+      const qualityTooBad = item.quality < 0
+
+      if (qualityTooBad || qualityTooMuch) {
+        console.log("The quality doesn't respect the rules")
       } else {
-        if (this.items[i].quality < 50) {
-          this.items[i].quality = this.items[i].quality + 1;
-          console.log(`${this.items[i].quality} Quality is less than 50', 'Quality win 1`)
-          if (this.items[i].name == "Backstage passes to a TAFKAL80ETC concert") {
-            console.log(`${this.items[i].name} Is TAFKAL80ETC concert part`)
-            if (this.items[i].sellIn < 11) {
-              console.log("sell In under 11")
-              if (this.items[i].quality < 50) {
-                this.items[i].quality = this.items[i].quality + 1;
-                console.log(`${this.items[i].quality} Quality is less than 50 Quality win 1 from 11 sell In`)
-              }
-            }
-            if (this.items[i].sellIn < 6) {
-              console.log("sell In under 6")
-              if (this.items[i].quality < 50) {
-                this.items[i].quality = this.items[i].quality + 1;
-                console.log(`${this.items[i].quality} Quality is less than 50 Quality win 1 from 6 sell in`)
-              }
-            }
-          }
+        switch (item.name) {
+          case "Aged Brie":
+            console.log('Item is Aged Brie');
+            this.updateAgedBrie(item);
+            item.sellIn -= 1;
+            break;
+          case "BK_pass":
+            console.log('Item is concert pass');
+            this.updateConcertPass(item);
+            item.sellIn -= 1;
+            break;
+          case "Sulfuras, Hand of Ragnaros":
+            console.log('Sulfura is untouchable');
+            break;
+          case "Conjured":
+          default:
+            console.log('Item is a regular item');
+            this.updateRandomItem(item);
+            item.sellIn -= 1;
+            break
         }
       }
-      if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-        this.items[i].sellIn = this.items[i].sellIn - 1;
-        console.log(`${this.items[i].name} is Not Sulfuras item, sellIn has decrease of 1 it's now ${this.items[i].sellIn} `)
-      }
-      if (this.items[i].sellIn < 0) {
-        console.log("sell In inferior than 0")
-        if (this.items[i].name != "Aged Brie") {
-          console.log("Is not Brie")
-          if (this.items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-            console.log("Is not also TAFKAL80ETC concert")
-            if (this.items[i].quality > 0) {
-              console.log("quality is more than 0")
-              if (this.items[i].name != "Sulfuras, Hand of Ragnaros") {
-                console.log('Is also not Sulfuras weapon')
-                this.items[i].quality = this.items[i].quality - 1;
-                console.log("the quality decrease of 1 because is something else")
-              }
-            }
-          } else {
-            this.items[i].quality = this.items[i].quality - this.items[i].quality;
-            console.log("else quality - quality")
-          }
-        } else {
-          if (this.items[i].quality < 50) {
-            this.items[i].quality = this.items[i].quality + 1;
-            console.log('quality is under 50', 'quality win + 1')
-          }
-        }
-      }
-      console.log(`AFTER // name: ${this.items[i].name}, quality: ${this.items[i].quality}, sellIn: ${this.items[i].sellIn}`)
+
+
+      console.log(`AFTER // name: ${item.name}, quality: ${item.quality}, sellIn: ${item.sellIn}`)
       console.log("______")
-    }
+    })
 
     return this.items;
+  }
+
+  private updateAgedBrie(item: Item) {
+    if (item.sellIn < 0) {
+      console.log('SellIn is negative, increasing quality by 2 again for Aged Brie');
+      item.quality += 2;
+    } else {
+      console.log('Increasing quality by 1 for Aged Brie');
+      item.quality++;
+    }
+    if (item.quality > 50) {
+      item.quality = 50
+    }
+  }
+
+  private updateConcertPass(item: Item) {
+    if (item.sellIn <= 10 && item.sellIn > 5) {
+      console.log('SellIn is between 10 and 5, increasing quality by 3 again for concert');
+      item.quality += 3;
+    } else if (item.sellIn <= 5 && item.sellIn > 0) {
+      console.log('SellIn is between 10 and 5, increasing quality by 6 again for concert');
+      item.quality += 6;
+    } else if (item.sellIn <= 0) {
+      console.log('SellIn is negatif or zero, quality is done for concert');
+      item.quality = 0;
+    } else {
+      console.log('Increasing quality by 1 for concert');
+      item.quality++;
+    }
+    if (item.quality > 50) {
+      item.quality = 50
+    }
+  }
+
+  private updateRandomItem(item: Item) {
+    const isConjured = item.name === "Conjured"
+    if (isConjured) {
+      console.log(`It's a conjured Item`);
+    }
+    if (item.sellIn < 0) {
+      console.log('SellIn is negative, decrease quality by 2 again for Random item');
+      item.quality -= isConjured ? 4 : 2;
+    } else {
+      console.log('decrease quality by 1 for Random item');
+      item.quality -= isConjured ? 2 : 1;
+    }
+    if (item.quality < 0) {
+      item.quality = 0
+    }
   }
 }

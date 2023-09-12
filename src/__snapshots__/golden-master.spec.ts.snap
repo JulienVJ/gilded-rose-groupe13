@@ -1,172 +1,249 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Ceci est un test 1`] = `
+exports[`GildedRose AGED BRIE -> should increase Quality by 1 1`] = `
 [
-  "BEFORE // name: Aged Brie, quality: 30, sellIn: 10",
-  "31 Quality is less than 50', 'Quality win 1",
-  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
-  "AFTER // name: Aged Brie, quality: 31, sellIn: 9",
+  "BEFORE // name: Aged Brie, quality: 20, sellIn: 10",
+  "Item is Aged Brie",
+  "Increasing quality by 1 for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 21, sellIn: 9",
   "______",
 ]
 `;
 
-exports[`Item is a Sulfuras hammer with a positif quality 1`] = `
+exports[`GildedRose AGED BRIE -> should increase Quality by 2 if sellIn negative 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 20, sellIn: -2",
+  "Item is Aged Brie",
+  "SellIn is negative, increasing quality by 2 again for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 22, sellIn: -3",
+  "______",
+]
+`;
+
+exports[`GildedRose BK_pass -> should increase Quality because sellIn between 0 and 5 by 6 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 31, sellIn: 4",
+  "Item is concert pass",
+  "SellIn is between 10 and 5, increasing quality by 6 again for concert",
+  "AFTER // name: BK_pass, quality: 37, sellIn: 3",
+  "______",
+]
+`;
+
+exports[`GildedRose BK_pass -> should increase Quality by 1 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 20, sellIn: 11",
+  "Item is concert pass",
+  "Increasing quality by 1 for concert",
+  "AFTER // name: BK_pass, quality: 21, sellIn: 10",
+  "______",
+]
+`;
+
+exports[`GildedRose BK_pass -> should increase Quality by 3 because sellIn between 5 and 10 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 31, sellIn: 9",
+  "Item is concert pass",
+  "SellIn is between 10 and 5, increasing quality by 3 again for concert",
+  "AFTER // name: BK_pass, quality: 34, sellIn: 8",
+  "______",
+]
+`;
+
+exports[`GildedRose BK_pass -> should stop SellIn and Quality by 0 because sellIn is 0 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 42, sellIn: 0",
+  "Item is concert pass",
+  "SellIn is negatif or zero, quality is done for concert",
+  "AFTER // name: BK_pass, quality: 0, sellIn: -1",
+  "______",
+]
+`;
+
+exports[`GildedRose CONJURED -> should decrease SellIn and Quality by 2 1`] = `
+[
+  "BEFORE // name: Conjured, quality: 20, sellIn: 10",
+  "Item is a regular item",
+  "It's a conjured Item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Conjured, quality: 18, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose NORMAL ITEM -> should decrease SellIn and Quality by 1 1`] = `
+[
+  "BEFORE // name: Random Item, quality: 20, sellIn: 10",
+  "Item is a regular item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Random Item, quality: 19, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose QUALITY -> should stop the quality to 50 and quality to 0 for the other item 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 50, sellIn: 1",
+  "Item is Aged Brie",
+  "Increasing quality by 1 for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 50, sellIn: 0",
+  "______",
+  "BEFORE // name: Conjured, quality: 1, sellIn: 10",
+  "Item is a regular item",
+  "It's a conjured Item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Conjured, quality: 0, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose QUALITY TOO HIGH -> should refuse the update 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 52, sellIn: 4",
+  "The quality doesn't respect the rules",
+  "AFTER // name: Aged Brie, quality: 52, sellIn: 4",
+  "______",
+]
+`;
+
+exports[`GildedRose QUALITY TOO LOW -> should refuse the update 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: -3, sellIn: 4",
+  "The quality doesn't respect the rules",
+  "AFTER // name: Aged Brie, quality: -3, sellIn: 4",
+  "______",
+]
+`;
+
+exports[`GildedRose SULFURA -> should be untouchable 1`] = `
 [
   "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
-  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 30 > 0",
+  "Sulfura is untouchable",
   "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
   "______",
 ]
 `;
 
-exports[`Item is a Sulfuras hammer with a positif quality 2`] = `
+exports[`GildedRose should decrease SellIn and Quality for a conjured item by 2 1`] = `
+[
+  "BEFORE // name: Conjured, quality: 20, sellIn: 10",
+  "Item is a regular item",
+  "It's a conjured Item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Conjured, quality: 18, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose should decrease SellIn and Quality for a normal item by 1 1`] = `
+[
+  "BEFORE // name: Random Item, quality: 20, sellIn: 10",
+  "Item is a regular item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Random Item, quality: 19, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose should increase SellIn and Quality for a aged brie item by 1 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 20, sellIn: 10",
+  "Item is Aged Brie",
+  "Increasing quality by 1 for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 21, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose should increase SellIn and Quality for a aged brie item by 2 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 20, sellIn: -2",
+  "Item is Aged Brie",
+  "SellIn is negative, increasing quality by 2 again for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 22, sellIn: -3",
+  "______",
+]
+`;
+
+exports[`GildedRose should increase SellIn and Quality for a concert pass by 1 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 20, sellIn: 11",
+  "Item is concert pass",
+  "Increasing quality by 1 for concert",
+  "AFTER // name: BK_pass, quality: 21, sellIn: 10",
+  "______",
+]
+`;
+
+exports[`GildedRose should increase SellIn and Quality for a concert pass by 3 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 31, sellIn: 9",
+  "Item is concert pass",
+  "SellIn is between 10 and 5, increasing quality by 3 again for concert",
+  "AFTER // name: BK_pass, quality: 34, sellIn: 8",
+  "______",
+]
+`;
+
+exports[`GildedRose should increase SellIn and Quality for a concert pass by 6 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 31, sellIn: 4",
+  "Item is concert pass",
+  "SellIn is between 10 and 5, increasing quality by 6 again for concert",
+  "AFTER // name: BK_pass, quality: 37, sellIn: 3",
+  "______",
+]
+`;
+
+exports[`GildedRose should refuse the update because quality is too high 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 52, sellIn: 4",
+  "The quality doesn't respect the rules",
+  "AFTER // name: Aged Brie, quality: 52, sellIn: 4",
+  "______",
+]
+`;
+
+exports[`GildedRose should refuse the update because quality is too low 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: -3, sellIn: 4",
+  "The quality doesn't respect the rules",
+  "AFTER // name: Aged Brie, quality: -3, sellIn: 4",
+  "______",
+]
+`;
+
+exports[`GildedRose should stop SellIn and Quality for a concert pass by 0 1`] = `
+[
+  "BEFORE // name: BK_pass, quality: 42, sellIn: 0",
+  "Item is concert pass",
+  "SellIn is negatif or zero, quality is done for concert",
+  "AFTER // name: BK_pass, quality: 0, sellIn: -1",
+  "______",
+]
+`;
+
+exports[`GildedRose should stop the quality to 50 and quality to 0 for the other item 1`] = `
+[
+  "BEFORE // name: Aged Brie, quality: 50, sellIn: 1",
+  "Item is Aged Brie",
+  "Increasing quality by 1 for Aged Brie",
+  "AFTER // name: Aged Brie, quality: 50, sellIn: 0",
+  "______",
+  "BEFORE // name: Conjured, quality: 1, sellIn: 10",
+  "Item is a regular item",
+  "It's a conjured Item",
+  "decrease quality by 1 for Random item",
+  "AFTER // name: Conjured, quality: 0, sellIn: 9",
+  "______",
+]
+`;
+
+exports[`GildedRose sulfura should be untouchable 1`] = `
 [
   "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
-  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 30 > 0",
+  "Sulfura is untouchable",
   "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 30, sellIn: 10",
-  "______",
-]
-`;
-
-exports[`Sulfuras hammer with a negatif quality / Random Objet with a positif quality 1`] = `
-[
-  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
-  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
-  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
-  "______",
-  "BEFORE // name: Random, quality: 10, sellIn: 10",
-  "Random is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 10 > 0",
-  "Random Is not Sulfuras Weapon, quality has decrease of 1 it's now 9",
-  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
-  "AFTER // name: Random, quality: 9, sellIn: 9",
-  "______",
-]
-`;
-
-exports[`Sulfuras hammer with a negatif quality / Random Objet with a positif quality 2`] = `
-[
-  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
-  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
-  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: -10, sellIn: 10",
-  "______",
-  "BEFORE // name: Random, quality: 10, sellIn: 10",
-  "Random is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 10 > 0",
-  "Random Is not Sulfuras Weapon, quality has decrease of 1 it's now 9",
-  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
-  "AFTER // name: Random, quality: 9, sellIn: 9",
-  "______",
-]
-`;
-
-exports[`Sulfuras hammer with a positif quality / Random Objet with a negatif quality 1`] = `
-[
-  "BEFORE // name: Sulfuras, Hand of Ragnaros, quality: 10, sellIn: 10",
-  "Sulfuras, Hand of Ragnaros is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 10 > 0",
-  "AFTER // name: Sulfuras, Hand of Ragnaros, quality: 10, sellIn: 10",
-  "______",
-  "BEFORE // name: Random, quality: -10, sellIn: 10",
-  "Random is different of a Aged Brie and TAFKAL80ETC concert",
-  "Random is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
-  "AFTER // name: Random, quality: -10, sellIn: 9",
-  "______",
-]
-`;
-
-exports[`Test with quality < 50 1`] = `
-[
-  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 30, sellIn: 10",
-  "31 Quality is less than 50', 'Quality win 1",
-  "Backstage passes to a TAFKAL80ETC concert Is TAFKAL80ETC concert part",
-  "sell In under 11",
-  "32 Quality is less than 50 Quality win 1 from 11 sell In",
-  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now 9 ",
-  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 32, sellIn: 9",
-  "______",
-]
-`;
-
-exports[`Test with quality < 50 but sellIn < 6 1`] = `
-[
-  "BEFORE // name: Aged Brie, quality: 30, sellIn: 4",
-  "31 Quality is less than 50', 'Quality win 1",
-  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now 3 ",
-  "AFTER // name: Aged Brie, quality: 31, sellIn: 3",
-  "______",
-]
-`;
-
-exports[`sellIn inférieur à 0 1`] = `
-[
-  "BEFORE // name: Aged Brie, quality: 60, sellIn: -1",
-  "Aged Brie is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
-  "sell In inferior than 0",
-  "AFTER // name: Aged Brie, quality: 60, sellIn: -2",
-  "______",
-]
-`;
-
-exports[`sellIn inférieur à 0 et nom != Brie/TAFKAL80ETC/Sulfuras 1`] = `
-[
-  "BEFORE // name: Different, quality: 0, sellIn: -1",
-  "Different is different of a Aged Brie and TAFKAL80ETC concert",
-  "Different is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
-  "sell In inferior than 0",
-  "Is not Brie",
-  "Is not also TAFKAL80ETC concert",
-  "AFTER // name: Different, quality: 0, sellIn: -2",
-  "______",
-]
-`;
-
-exports[`sellIn inférieur à 0, nom != TAFKAL80ETC et quality <50 1`] = `
-[
-  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 40, sellIn: -1",
-  "41 Quality is less than 50', 'Quality win 1",
-  "Backstage passes to a TAFKAL80ETC concert Is TAFKAL80ETC concert part",
-  "sell In under 11",
-  "42 Quality is less than 50 Quality win 1 from 11 sell In",
-  "sell In under 6",
-  "43 Quality is less than 50 Quality win 1 from 6 sell in",
-  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
-  "sell In inferior than 0",
-  "Is not Brie",
-  "else quality - quality",
-  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 0, sellIn: -2",
-  "______",
-]
-`;
-
-exports[`sellIn inférieur à 0, nom = TAFKAL80ETC 1`] = `
-[
-  "BEFORE // name: Backstage passes to a TAFKAL80ETC concert, quality: 60, sellIn: -1",
-  "Backstage passes to a TAFKAL80ETC concert is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
-  "sell In inferior than 0",
-  "Is not Brie",
-  "else quality - quality",
-  "AFTER // name: Backstage passes to a TAFKAL80ETC concert, quality: 0, sellIn: -2",
-  "______",
-]
-`;
-
-exports[`sellIn inférieur à 0, nom =! sulfuras et quality > 0 1`] = `
-[
-  "BEFORE // name: Different, quality: 60, sellIn: -1",
-  "Different is different of a Aged Brie and TAFKAL80ETC concert",
-  "Quality 60 > 0",
-  "Different Is not Sulfuras Weapon, quality has decrease of 1 it's now 59",
-  "Different is Not Sulfuras item, sellIn has decrease of 1 it's now -2 ",
-  "sell In inferior than 0",
-  "Is not Brie",
-  "Is not also TAFKAL80ETC concert",
-  "quality is more than 0",
-  "Is also not Sulfuras weapon",
-  "the quality decrease of 1 because is something else",
-  "AFTER // name: Different, quality: 58, sellIn: -2",
   "______",
 ]
 `;
